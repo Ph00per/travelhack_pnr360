@@ -1,4 +1,4 @@
-package com.phooper.travelhack.presentation.instructions
+package com.phooper.travelhack.presentation.entry_screen_tablet
 
 import com.phooper.travelhack.App
 import com.phooper.travelhack.Screens
@@ -8,7 +8,7 @@ import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
 @InjectViewState
-class InstructionsPresenter : MvpPresenter<InstructionsView>() {
+class EntryScreenTabletPresenter : MvpPresenter<EntryScreenTabletView>() {
 
     init {
         App.daggerComponent.inject(this)
@@ -17,14 +17,8 @@ class InstructionsPresenter : MvpPresenter<InstructionsView>() {
     @Inject
     lateinit var router: Router
 
-    fun forwardBtnOnClicked() {
+    fun onClicked() {
         router.navigateTo(Screens.BarcodeScanner)
     }
-
-    fun backBtnOnClicked() {
-        router.exit()
-    }
-
-    fun onBackPressed() = backBtnOnClicked()
 
 }

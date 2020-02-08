@@ -8,7 +8,6 @@ import com.phooper.travelhack.presentation.take_photo_tablet.TakePhotoTabletView
 import com.phooper.travelhack.presentation.take_photo_tablet.TakePhotoTabletPresenter
 import com.phooper.travelhack.ui.global.BaseFragment
 import kotlinx.android.synthetic.main.counter_digital_circle.*
-import kotlinx.android.synthetic.main.dialog_drop_session.*
 import kotlinx.android.synthetic.main.fragment_take_photo_tablet.*
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
@@ -36,12 +35,6 @@ class TakePhotoTabletFragment : BaseFragment(), TakePhotoTabletView {
         exit_btn.setOnClickListener {
             presenter.btnExitOnClicked()
         }
-        dlg_cancel.setOnClickListener {
-            presenter.dialogCancelBtnOnClicked()
-        }
-        dlg_exit.setOnClickListener {
-            presenter.dialogExitBtnOnClicked()
-        }
     }
 
     override fun showMessage(msg: String) {
@@ -53,14 +46,6 @@ class TakePhotoTabletFragment : BaseFragment(), TakePhotoTabletView {
 
     override fun disableStartBtn() {
         start_btn.isClickable = false
-    }
-
-    override fun showDropSessionDlg() {
-        dialog_drop_session.visibility = View.VISIBLE
-    }
-
-    override fun hideDropSessionDlg() {
-        dialog_drop_session.visibility = View.GONE
     }
 
     override fun changeStartBtnDigit(digit: String) {

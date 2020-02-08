@@ -15,7 +15,6 @@ import com.journeyapps.barcodescanner.DefaultDecoderFactory
 import com.phooper.travelhack.R
 import com.phooper.travelhack.presentation.barcode_scanner.BarcodeScannerPresenter
 import com.phooper.travelhack.presentation.barcode_scanner.BarcodeScannerView
-import com.phooper.travelhack.presentation.instructions.InstructionsPresenter
 import com.phooper.travelhack.ui.global.BaseFragment
 import kotlinx.android.synthetic.main.fragment_barcode_scanner.*
 import moxy.presenter.InjectPresenter

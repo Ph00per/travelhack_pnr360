@@ -1,9 +1,10 @@
 package com.phooper.travelhack.di
 
+import com.phooper.travelhack.model.interactor.TakePhotoCameraInteractor
+import com.phooper.travelhack.model.interactor.TakePhotoTabletInteractor
 import com.phooper.travelhack.presentation.after_shoot_instruction.AfterShootInstructionPresenter
 import com.phooper.travelhack.presentation.barcode_scanner.BarcodeScannerPresenter
-import com.phooper.travelhack.presentation.instructions.InstructionsPresenter
-import com.phooper.travelhack.presentation.language_selector.LanguageSelectorPresenter
+import com.phooper.travelhack.presentation.entry_screen_tablet.EntryScreenTabletPresenter
 import com.phooper.travelhack.presentation.mode_selector.ModeSelectorPresenter
 import com.phooper.travelhack.presentation.take_photo_camera.TakePhotoCameraPresenter
 import com.phooper.travelhack.presentation.take_photo_tablet.TakePhotoTabletPresenter
@@ -19,13 +20,15 @@ interface AppComponent {
     fun inject(activity: AppActivity)
 
     fun inject(presenter: ModeSelectorPresenter)
-    fun inject(presenter: LanguageSelectorPresenter)
     fun inject(presenter: BarcodeScannerPresenter)
-    fun inject(presenter: InstructionsPresenter)
     fun inject(presenter: TakePhotoCameraPresenter)
     fun inject(presenter: TakePhotoTabletPresenter)
     fun inject(presenter: AfterShootInstructionPresenter)
+    fun inject(presenter: EntryScreenTabletPresenter)
 
     fun inject(adapter: SquareImgAdapter)
+
+    fun inject(interactor: TakePhotoTabletInteractor)
+    fun inject(interactor: TakePhotoCameraInteractor)
 
 }

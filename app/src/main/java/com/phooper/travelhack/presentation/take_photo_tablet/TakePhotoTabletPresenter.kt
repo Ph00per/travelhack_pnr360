@@ -3,7 +3,9 @@ package com.phooper.travelhack.presentation.take_photo_tablet
 import com.phooper.travelhack.App
 import com.phooper.travelhack.R
 import com.phooper.travelhack.Screens
+import com.phooper.travelhack.model.interactor.TakePhotoTabletInteractor
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -23,18 +25,24 @@ class TakePhotoTabletPresenter(private val barcode: String?) : MvpPresenter<Take
     @Inject
     lateinit var router: Router
 
+    @Inject
+    lateinit var interactor: TakePhotoTabletInteractor
+
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-
     }
 
     fun startBtnOnClicked() {
-        //TODO IS CONNECTED TO SERVER?
+        CoroutineScope(IO).launch {
+            interactor.setPhotoState(barcode!!)
+        }
         startCounting()
+
     }
 
     private fun startCounting() {
         CoroutineScope(Main).launch {
+
             viewState.apply {
                 disableStartBtn()
                 changeStartBtnResource(R.drawable.blue_white_circle)
@@ -51,16 +59,6 @@ class TakePhotoTabletPresenter(private val barcode: String?) : MvpPresenter<Take
         }
     }
 
-    fun dialogCancelBtnOnClicked() {
-        viewState.hideDropSessionDlg()
-    }
-
-    fun dialogExitBtnOnClicked() {
-        //TODO DROP SESSION
-        router.newRootScreen(Screens.LanguageSelector)
-    }
-
     fun btnExitOnClicked() {
-        viewState.showDropSessionDlg()
-    }
+        router.newRootScreen(Screens.EntryScreenTablet)    }
 }

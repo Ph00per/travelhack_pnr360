@@ -6,27 +6,31 @@
     android:background="@color/colorPrimary">
 
 
-    <TextView
-        android:id="@+id/header"
-        style="@style/text_header"
-        android:text="@string/barcode_hint_header"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.journeyapps.barcodescanner.DecoratedBarcodeView
         android:id="@+id/barcode_scanner"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header" />
+        app:layout_constraintBottom_toTopOf="@id/back_btn"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <LinearLayout
         android:id="@+id/back_btn"
-        style="@style/button_secondary_grey"
-        android:text="@string/back_btn_label"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/black"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_rounded_cross" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

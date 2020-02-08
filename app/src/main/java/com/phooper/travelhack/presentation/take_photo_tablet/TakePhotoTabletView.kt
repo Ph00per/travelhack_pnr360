@@ -25,11 +25,6 @@ interface TakePhotoTabletView : MvpView {
     @StateStrategyType(value = AddToEndSingleStrategy::class)
     fun disableStartBtn()
 
-    @StateStrategyType(value = AddToEndSingleStrategy::class)
-    fun showDropSessionDlg()
-
-    @StateStrategyType(value = AddToEndSingleStrategy::class)
-    fun hideDropSessionDlg()
 
 
 }

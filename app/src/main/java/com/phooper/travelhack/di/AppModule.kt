@@ -6,13 +6,13 @@ import com.bumptech.glide.RequestManager
 import com.bumptech.glide.request.RequestOptions
 import com.phooper.travelhack.R
 import com.phooper.travelhack.model.interactor.BarcodeScannerInteractor
-import com.phooper.travelhack.model.interactor.EditPrintPhotoInteractor
+import com.phooper.travelhack.model.interactor.TakePhotoCameraInteractor
+import com.phooper.travelhack.model.interactor.TakePhotoTabletInteractor
 import dagger.Module
 import dagger.Provides
-import dev.dinoparty.MysqlConnector
-import dev.dinoparty.PhotoSession
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.withContext
+import org.redisson.Redisson
+import org.redisson.api.RedissonClient
+import org.redisson.config.Config
 import javax.inject.Singleton
 
 @Module
@@ -28,7 +28,11 @@ class AppModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun provideEditPrintInteractor() = EditPrintPhotoInteractor()
+    fun providePhotoTabletInteractor() = TakePhotoTabletInteractor()
+
+    @Provides
+    @Singleton
+    fun provideCameraInteractor() = TakePhotoCameraInteractor()
 
     @Provides
     @Singleton
@@ -44,5 +48,15 @@ class AppModule(private val context: Context) {
     ): RequestManager =
         Glide.with(context)
             .setDefaultRequestOptions(requestOptions)
+
+    @Singleton
+    @Provides
+    fun providesRedConfig(): Config =
+        Config().apply { useSingleServer().address = "redis://192.168.43.191:6379" }
+
+    @Singleton
+    @Provides
+    fun provideRedisson(config: Config): RedissonClient =
+        Redisson.create(config)
 
 }

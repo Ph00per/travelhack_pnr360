@@ -22,6 +22,9 @@
     <string name="cancel">Отменить</string>
     <string name="do_another_shot">Сделать ещё снимок</string>
     <string name="navigate_to_edit">Перейти к редактированию</string>
+    <string name="rus_start_screen">Чтобы сделать фото коснитесь экрана и поднесите штрих-код входного билета к задней камере планшета</string>
+    <string name="eng_start_screen">To take a photo, tap the screen and bring the barcode of the entrance ticket to the back camera of the tablet</string>
+    <string name="chin_start_screen">要拍照，請點按屏幕，然後將門票的條形碼帶到平板電腦的後置攝像頭</string>
 
     <string-array name="chroma_colours">
         <item>#14fc04</item>

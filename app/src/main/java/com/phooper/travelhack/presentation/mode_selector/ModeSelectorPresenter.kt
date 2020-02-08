@@ -19,7 +19,7 @@ class ModeSelectorPresenter : MvpPresenter<ModeSelectorView>() {
     }
 
     fun startEditPhotosMode() {
-        router.newRootScreen(Screens.LanguageSelector)
+        router.newRootScreen(Screens.EntryScreenTablet)
     }
 
 }

@@ -11,8 +11,21 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/io.netty.versions.properties'
+        exclude("META-INF/*.kotlin_module")
+    }
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.phooper.travelhack"
         minSdkVersion 22
@@ -78,5 +91,7 @@ dependencies {
     //SpinKit
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
 
+    //Redis
+    implementation 'org.redisson:redisson:3.12.1'
 
 }
