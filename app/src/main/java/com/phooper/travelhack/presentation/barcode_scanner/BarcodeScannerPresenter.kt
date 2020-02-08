@@ -56,23 +56,26 @@ class BarcodeScannerPresenter : MvpPresenter<BarcodeScannerView>() {
         lastScannedBarcode = barcode
         Log.d("Scanned: ", barcode)
         CoroutineScope(IO).launch {
-            if (scannerInteractor.validateOLD(barcode)) {
-                Log.d("Scan succeed: ", "")
-                withContext(Main) { router.navigateTo(Screens.TakePhotoTablet(barcode)) }
-            } else {
-                //TODO: Barcode scan failed
-                withContext(Main) {
-                    viewState.apply {
+            when (scannerInteractor.validate(barcode)) {
+                true -> {
+                    Log.d("Scan succeed: ", "")
+                    withContext(Main) { router.navigateTo(Screens.TakePhotoTablet(barcode)) }
+                }
+                false -> {
+                    withContext(Main) {
+                        //TODO show messages viewState
                     }
                 }
-                Log.d("Scan failed: ", "")
+                null -> {
+                    Log.d("Scan failed: ", "")
+                }
             }
         }
     }
 
-    fun onBackPressed() = router.exit()
+fun onBackPressed() = router.exit()
 
-    fun backBtnOnPressed() = onBackPressed()
+fun backBtnOnPressed() = onBackPressed()
 }
 
 

@@ -27,6 +27,9 @@
     <string name="chin_start_screen">要拍照，請點按屏幕，然後將門票的條形碼帶到平板電腦的後置攝像頭</string>
     <string name="rus_tak_shoot">Нажмите на кнопку и пройдите в зону съёмки. \nСнимок будет сделан через 10 секунд после нажатия.</string>
     <string name="eng_takephoto">Press the button and go to the shooting area. The picture is taken 10 seconds after pressing.</string>
+    <string name="go_get_photos_instr_rus">Предъявите билет со штрих-кодом сотруднику отдела «Сувениры» и получите фотографию.</string>
+    <string name="go_get_photos_instr_eng">Show a ticket with a barcode to an employee of the Souvenirs department and get a photo.</string>
+    <string name="go_get_photos_instr_chin">向紀念品部門的成員出示帶有條形碼的車票並獲得照片。</string>
 
     <string-array name="chroma_colours">
         <item>#14fc04</item>

@@ -1,12 +1,11 @@
 package com.phooper.travelhack.ui.take_photo_tablet
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.phooper.travelhack.R
-import com.phooper.travelhack.presentation.take_photo_tablet.TakePhotoTabletView
 import com.phooper.travelhack.presentation.take_photo_tablet.TakePhotoTabletPresenter
+import com.phooper.travelhack.presentation.take_photo_tablet.TakePhotoTabletView
 import com.phooper.travelhack.ui.global.BaseFragment
 import kotlinx.android.synthetic.main.counter_digital_circle.*
 import kotlinx.android.synthetic.main.fragment_take_photo_tablet.*
@@ -63,6 +62,10 @@ class TakePhotoTabletFragment : BaseFragment(), TakePhotoTabletView {
 
     override fun hideHintLayout() {
         hint_layout.visibility = View.GONE
+    }
+
+    override fun hideExitBtn() {
+        exit_btn.visibility = View.GONE
     }
 
     companion object {

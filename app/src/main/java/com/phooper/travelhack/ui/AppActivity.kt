@@ -39,10 +39,10 @@ class AppActivity : MvpAppCompatActivity() {
                 fragmentTransaction
             )
             if (command is Forward) fragmentTransaction?.setCustomAnimations(
-                R.anim.slide_in_left,
-                R.anim.slide_out_left,
-                R.anim.slide_in_right,
-                R.anim.slide_out_right
+                R.anim.no_anim,
+                R.anim.fade_out,
+                R.anim.no_anim,
+                R.anim.fade_out
             )
         }
     }

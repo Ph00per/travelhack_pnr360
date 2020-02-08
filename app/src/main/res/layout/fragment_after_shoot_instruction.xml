@@ -1,6 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/photo_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/hint_layout"
+            android:padding="32dp"
+            android:layout_width="640dp"
+            android:layout_height="match_parent"
+            android:background="@color/black_transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/first_divider"
+                android:layout_width="64dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="81dp"
+                android:src="@drawable/ic_yellow_stick"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/ru_instr"
+                style="@style/unordered_list_text"
+                android:layout_width="0dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/go_get_photos_instr_rus"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/first_divider" />
+
+            <ImageView
+                android:id="@+id/second_divider"
+                android:layout_width="64dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="81dp"
+                android:src="@drawable/ic_yellow_stick"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ru_instr" />
+
+            <TextView
+                android:id="@+id/eng_instr"
+                style="@style/unordered_list_text"
+                android:layout_width="0dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/go_get_photos_instr_eng"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/second_divider" />
+
+
+            <ImageView
+                android:id="@+id/third_divider"
+                android:layout_width="64dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="81dp"
+                android:src="@drawable/ic_yellow_stick"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/eng_instr" />
+
+            <TextView
+                android:id="@+id/china_instr"
+                style="@style/unordered_list_text"
+                android:layout_width="0dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/go_get_photos_instr_chin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/third_divider" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/start_btn"
+            android:src="@drawable/ic_ok"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/hint_layout"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
