@@ -10,6 +10,7 @@ import com.phooper.travelhack.model.interactor.TakePhotoCameraInteractor
 import com.phooper.travelhack.model.interactor.TakePhotoTabletInteractor
 import dagger.Module
 import dagger.Provides
+import okhttp3.OkHttpClient
 import org.redisson.Redisson
 import org.redisson.api.RedissonClient
 import org.redisson.config.Config
@@ -59,4 +60,8 @@ class AppModule(private val context: Context) {
     fun provideRedisson(config: Config): RedissonClient =
         Redisson.create(config)
 
+    @Singleton
+    @Provides
+    fun provideOkHttpClient(): OkHttpClient = OkHttpClient().newBuilder()
+        .build()
 }

@@ -7,7 +7,6 @@ import com.phooper.travelhack.model.interactor.BarcodeScannerInteractor
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import moxy.InjectViewState
@@ -57,7 +56,7 @@ class BarcodeScannerPresenter : MvpPresenter<BarcodeScannerView>() {
         lastScannedBarcode = barcode
         Log.d("Scanned: ", barcode)
         CoroutineScope(IO).launch {
-            if (scannerInteractor.validate(barcode)) {
+            if (scannerInteractor.validateOLD(barcode)) {
                 Log.d("Scan succeed: ", "")
                 withContext(Main) { router.navigateTo(Screens.TakePhotoTablet(barcode)) }
             } else {

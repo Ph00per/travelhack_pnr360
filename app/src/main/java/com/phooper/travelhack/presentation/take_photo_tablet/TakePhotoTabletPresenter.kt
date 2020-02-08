@@ -25,25 +25,25 @@ class TakePhotoTabletPresenter(private val barcode: String?) : MvpPresenter<Take
     @Inject
     lateinit var router: Router
 
-    @Inject
-    lateinit var interactor: TakePhotoTabletInteractor
+//    @Inject
+//    lateinit var interactor: TakePhotoTabletInteractor
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
     }
 
     fun startBtnOnClicked() {
-        CoroutineScope(IO).launch {
-            interactor.setPhotoState(barcode!!)
-        }
+//        CoroutineScope(IO).launch {
+//            interactor.setPhotoState(barcode!!)
+//        }
         startCounting()
 
     }
 
     private fun startCounting() {
         CoroutineScope(Main).launch {
-
             viewState.apply {
+                hideHintLayout()
                 disableStartBtn()
                 changeStartBtnResource(R.drawable.blue_white_circle)
                 showStartBtnDigits()
@@ -60,5 +60,6 @@ class TakePhotoTabletPresenter(private val barcode: String?) : MvpPresenter<Take
     }
 
     fun btnExitOnClicked() {
-        router.newRootScreen(Screens.EntryScreenTablet)    }
+        router.newRootScreen(Screens.EntryScreenTablet)
+    }
 }

@@ -1,5 +1,6 @@
 package com.phooper.travelhack.di
 
+import com.phooper.travelhack.model.interactor.BarcodeScannerInteractor
 import com.phooper.travelhack.model.interactor.TakePhotoCameraInteractor
 import com.phooper.travelhack.model.interactor.TakePhotoTabletInteractor
 import com.phooper.travelhack.presentation.after_shoot_instruction.AfterShootInstructionPresenter
@@ -30,5 +31,6 @@ interface AppComponent {
 
     fun inject(interactor: TakePhotoTabletInteractor)
     fun inject(interactor: TakePhotoCameraInteractor)
+    fun inject(interactor: BarcodeScannerInteractor)
 
 }

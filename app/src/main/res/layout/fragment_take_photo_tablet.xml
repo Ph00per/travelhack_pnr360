@@ -13,40 +13,99 @@
         app:layout_constraintBottom_toTopOf="@id/exit_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
-        <include
-            android:id="@+id/black_layer"
-            layout="@layout/transparent_layer_with_digits"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/hint_layout"
+            android:padding="32dp"
+            android:layout_width="640dp"
+            android:layout_height="match_parent"
+            android:background="@color/black_transparent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/hint_text"
-            style="@style/unordered_list_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:text="@string/click_btn_and_go_shot"
-            android:textColor="@color/colorPrimary"
-            app:layout_constraintEnd_toStartOf="@id/start_btn"
-            app:layout_constraintStart_toStartOf="@id/black_layer"
-            app:layout_constraintTop_toTopOf="@id/start_btn" />
+
+            <ImageView
+                android:id="@+id/first_divider"
+                android:layout_width="64dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="81dp"
+                android:src="@drawable/ic_yellow_stick"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/ru_instr"
+                style="@style/unordered_list_text"
+                android:layout_width="0dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/rus_tak_shoot"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/first_divider" />
+
+            <ImageView
+                android:id="@+id/second_divider"
+                android:layout_width="64dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="81dp"
+                android:src="@drawable/ic_yellow_stick"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ru_instr" />
+
+            <TextView
+                android:id="@+id/eng_instr"
+                style="@style/unordered_list_text"
+                android:layout_width="0dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/eng_takephoto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/second_divider" />
+
+
+            <ImageView
+                android:id="@+id/third_divider"
+                android:layout_width="64dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="81dp"
+                android:src="@drawable/ic_yellow_stick"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/eng_instr" />
+
+            <TextView
+                android:id="@+id/china_instr"
+                style="@style/unordered_list_text"
+                android:layout_width="0dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/chin_start_screen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/third_divider" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <include
             android:id="@+id/start_btn"
             layout="@layout/counter_digital_circle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="45dp"
-            android:layout_marginBottom="32dp"
-            app:layout_constraintBottom_toBottomOf="@+id/black_layer"
-            app:layout_constraintEnd_toEndOf="@+id/black_layer" />
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/hint_layout"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

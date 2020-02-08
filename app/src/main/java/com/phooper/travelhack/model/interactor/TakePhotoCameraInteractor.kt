@@ -18,7 +18,7 @@ class TakePhotoCameraInteractor {
     lateinit var redissonClient: RedissonClient
 
     private val bucket: RBucket<String> = redissonClient.getBucket<String>(
-        Constants.photo_flag,
+        Constants.PHOTO_FLAG,
         org.redisson.client.codec.StringCodec("utf-8")
     )
 

@@ -19,7 +19,7 @@ class TakePhotoTabletInteractor {
     lateinit var redissonClient: RedissonClient
 
     val bucket: RBucket<String> = redissonClient.getBucket(
-        Constants.photo_flag,
+        Constants.PHOTO_FLAG,
         org.redisson.client.codec.StringCodec("utf-8")
     )
 

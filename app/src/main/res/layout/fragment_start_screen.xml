@@ -9,24 +9,26 @@
     android:focusable="true"
     android:padding="32dp">
 
-    <Button
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:background="@drawable/vector_barcode"
+        android:src="@drawable/vector_barcode"
         android:clickable="false"
         android:elevation="14dp"
+        android:outlineProvider="bounds"
         android:focusable="false"
         app:layout_constraintBottom_toTopOf="@id/tablet_img"
         app:layout_constraintEnd_toEndOf="@id/tablet_img"
         app:layout_constraintStart_toStartOf="@id/tablet_img" />
 
-    <Button
+    <ImageView
+        android:outlineProvider="bounds"
         android:id="@+id/tablet_img"
         android:layout_width="434dp"
         android:layout_height="259dp"
         android:layout_marginEnd="72dp"
-        android:background="@drawable/vector_tablet"
+        android:src="@drawable/vector_tablet"
         android:clickable="false"
         android:elevation="28dp"
         android:focusable="false"

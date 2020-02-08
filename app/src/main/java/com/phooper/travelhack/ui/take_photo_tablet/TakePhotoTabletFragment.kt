@@ -1,5 +1,6 @@
 package com.phooper.travelhack.ui.take_photo_tablet
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -58,6 +59,10 @@ class TakePhotoTabletFragment : BaseFragment(), TakePhotoTabletView {
 
     override fun showStartBtnDigits() {
         seconds_left.visibility = View.VISIBLE
+    }
+
+    override fun hideHintLayout() {
+        hint_layout.visibility = View.GONE
     }
 
     companion object {
