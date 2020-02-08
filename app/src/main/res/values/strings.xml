@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">travelhack</string>
+    <string name="scan_your_ticket_barcode">Scan your ticker barcode</string>
+    <string name="english_short">ENG</string>
+    <string name="china_short">中国</string>
+    <string name="russia_short">РУС</string>
+    <string name="back_btn_label">Назад</string>
+    <string name="forward_btn_label">Далее</string>
+    <string name="instructions_header">Создайте коллаж со своим фото. Распечатайте и пошлите на email.</string>
+    <string name="instr_scan_your_ticket">Отсканируйте штрих-код со своего входного билета камерой планшета</string>
+    <string name="instr_click_makephoto_btn">Нажмите на планшете кнопку «Сфотографировать»</string>
+    <string name="instr_go_into_chromazone">Встаньте в зону фотографии (зелёный фон)</string>
+    <string name="instr_ten_secs_before_shoot">Через 10 секунд камера сделает снимок</string>
+    <string name="instr_you_got_six_shots">Можете сделать до 6 снимков по одному билету</string>
+    <string name="instr_choose_background">Создайте коллажи</string>
+    <string name="instr_print_liked_one">Понравившийся коллаж распечатайте и пошлите на email</string>
+    <string name="barcode_hint_header">Поднесите штрих-код входного билета к задней камере планшета.</string>
+    <string name="second">с</string>
+    <string name="click_btn_and_go_shot">Нажмите на кнопку и пройдите в зону съёмки</string>
+    <string name="exit">Выйти</string>
+    <string name="your_photo_will_be_removed">Вы уверены? Билет будет аннулирован.</string>
+    <string name="cancel">Отменить</string>
+    <string name="do_another_shot">Сделать ещё снимок</string>
+    <string name="navigate_to_edit">Перейти к редактированию</string>
+
+    <string-array name="chroma_colours">
+        <item>#14fc04</item>
+        <item>#14fc0c</item>
+        <item>#18fc04</item>
+    </string-array>
+</resources>
