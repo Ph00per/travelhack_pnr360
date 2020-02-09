@@ -11,9 +11,7 @@ import com.phooper.travelhack.model.interactor.TakePhotoTabletInteractor
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
-import org.redisson.Redisson
-import org.redisson.api.RedissonClient
-import org.redisson.config.Config
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
@@ -52,6 +50,9 @@ class AppModule(private val context: Context) {
 
     @Singleton
     @Provides
-    fun provideOkHttpClient(): OkHttpClient = OkHttpClient().newBuilder()
-        .build()
+    fun provideOkHttpClient(): OkHttpClient =
+        OkHttpClient().newBuilder().connectTimeout(100, TimeUnit.SECONDS)
+            .writeTimeout(100, TimeUnit.SECONDS)
+            .readTimeout(100, TimeUnit.SECONDS)
+            .build()
 }

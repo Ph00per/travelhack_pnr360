@@ -24,7 +24,7 @@ class AfterShootInstructionPresenter : MvpPresenter<AfterShootInstructionView>()
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         CoroutineScope(Main).launch {
-            delay(10)
+            delay(10000)
             router.newRootScreen(Screens.EntryScreenTablet)
         }
 

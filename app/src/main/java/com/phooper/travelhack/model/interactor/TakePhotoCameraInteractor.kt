@@ -59,7 +59,7 @@ class TakePhotoCameraInteractor {
 
     suspend fun sendPhoto(barcode: String, img: ByteArray) = withContext(IO) {
         try {
-            val body =
+
                 okhttpClient.newCall(
                     Request.Builder().url(BASE_URI + "api/photos?barcode=$barcode").post(
                         MultipartBody.Builder()
@@ -68,7 +68,7 @@ class TakePhotoCameraInteractor {
                                 "photo", barcode + "pic"
                                 , RequestBody.create("image/png".toMediaType(), img)
                             )
-                            .addFormDataPart("barcode", barcode).build()
+                            .build()
                     )
                         .build()
                 ).execute().let {

@@ -37,12 +37,12 @@ class BarcodeScannerPresenter : MvpPresenter<BarcodeScannerView>() {
 
 
         //TODO Remove me
-//        CoroutineScope(IO).launch {
-//            delay(1000)
-//            withContext(Main) {
-//                router.navigateTo(Screens.TakePhotoTablet("1500000000035"))
-//            }
-//        }
+        CoroutineScope(IO).launch {
+            delay(1000)
+            withContext(Main) {
+                router.navigateTo(Screens.TakePhotoTablet("1500000000035"))
+            }
+        }
     }
 
     fun isCameraPermissionGranted(isGranted: Boolean) {
