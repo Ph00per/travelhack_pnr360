@@ -1,6 +1,5 @@
 package com.phooper.travelhack.presentation.take_photo_camera
 
-import android.graphics.Bitmap
 import android.util.Log
 import com.phooper.travelhack.App
 import com.phooper.travelhack.model.interactor.TakePhotoCameraInteractor
@@ -12,6 +11,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import moxy.InjectViewState
 import moxy.MvpPresenter
+import java.io.File
+import java.io.FileOutputStream
 import javax.inject.Inject
 
 
@@ -27,7 +28,6 @@ class TakePhotoCameraPresenter : MvpPresenter<TakePhotoCameraView>() {
     @Inject
     lateinit var interactor: TakePhotoCameraInteractor
 
-    var waitingForClick = true
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -39,13 +39,14 @@ class TakePhotoCameraPresenter : MvpPresenter<TakePhotoCameraView>() {
 
     private fun listenForData() {
         CoroutineScope(IO).launch {
-            while (waitingForClick) {
-                Log.d("CHECKIN", "CHECKIN")
-                delay(1000)
+            while (true) {
+//                Log.d("CHECKIN", "CHECKIN")
+                delay(300)
                 interactor.getCurrentPhotoFlag()?.let {
-                    waitingForClick = false
-                    startCounting()
                     currentBarcode = it
+                    interactor.clearFlag(it)
+                    startCounting()
+                    return@launch
                 }
 
             }
@@ -64,15 +65,22 @@ class TakePhotoCameraPresenter : MvpPresenter<TakePhotoCameraView>() {
             viewState.startCounting()
             delay(9300)
             viewState.takePhoto()
-            waitingForClick = true
             listenForData()
         }
 
-    fun photoTaken(photo: Bitmap?) {
+    fun photoTaken(photo: ByteArray) {
         //TODO SEND PHOTO
-        Log.d("is Photo null", (photo == null).toString())
-        Log.d("Photo size", photo?.byteCount.toString())
-        Log.d("Photo id", currentBarcode)
-        currentBarcode = null
+//        Log.d("is Photo null", (photo == null).toString())
+//        Log.d("Photo size", photo?.byteCount.toString())
+//        Log.d("Photo id", currentBarcode)
+        CoroutineScope(IO).launch {
+
+            Log.d("current bar null", (currentBarcode == null).toString())
+            currentBarcode?.let {
+                Log.d("Sending photo", it)
+                interactor.sendPhoto(it, photo)
+            }
+            currentBarcode = null
+        }
     }
 }

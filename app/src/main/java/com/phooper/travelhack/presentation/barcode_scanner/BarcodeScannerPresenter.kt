@@ -7,6 +7,7 @@ import com.phooper.travelhack.model.interactor.BarcodeScannerInteractor
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import moxy.InjectViewState
@@ -33,11 +34,13 @@ class BarcodeScannerPresenter : MvpPresenter<BarcodeScannerView>() {
         super.onFirstViewAttach()
         viewState.checkCameraPermission()
 
+
+
         //TODO Remove me
 //        CoroutineScope(IO).launch {
 //            delay(1000)
 //            withContext(Main) {
-//                router.navigateTo(Screens.TakePhotoTablet("312123321123"))
+//                router.navigateTo(Screens.TakePhotoTablet("1500000000035"))
 //            }
 //        }
     }
@@ -63,7 +66,13 @@ class BarcodeScannerPresenter : MvpPresenter<BarcodeScannerView>() {
                 }
                 false -> {
                     withContext(Main) {
-                        //TODO show messages viewState
+
+                        CoroutineScope(IO).launch {
+                            delay(2000)
+                            withContext(Main) { viewState.showDialog() }
+                            delay(2000)
+                            withContext(Main) { viewState.hideDialog() }
+                        }
                     }
                 }
                 null -> {
@@ -73,9 +82,9 @@ class BarcodeScannerPresenter : MvpPresenter<BarcodeScannerView>() {
         }
     }
 
-fun onBackPressed() = router.exit()
+    fun onBackPressed() = router.exit()
 
-fun backBtnOnPressed() = onBackPressed()
+    fun backBtnOnPressed() = onBackPressed()
 }
 
 

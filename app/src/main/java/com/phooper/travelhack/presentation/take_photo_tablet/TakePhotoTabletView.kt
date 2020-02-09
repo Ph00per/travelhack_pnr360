@@ -26,9 +26,7 @@ interface TakePhotoTabletView : MvpView {
     fun disableStartBtn()
 
     @StateStrategyType(value = AddToEndSingleStrategy::class)
-    fun hideHintLayout()
+    fun hideHintAndExit()
 
-    @StateStrategyType(value = AddToEndSingleStrategy::class)
-    fun hideExitBtn()
 
 }

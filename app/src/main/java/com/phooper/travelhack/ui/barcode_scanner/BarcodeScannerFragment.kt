@@ -4,6 +4,9 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.transition.AutoTransition
+import android.transition.TransitionManager
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.ResultPoint
@@ -18,12 +21,14 @@ import com.phooper.travelhack.presentation.barcode_scanner.BarcodeScannerView
 import com.phooper.travelhack.ui.global.BaseFragment
 import kotlinx.android.synthetic.main.fragment_barcode_scanner.*
 import moxy.presenter.InjectPresenter
-import moxy.presenter.ProvidePresenter
 
 
 class BarcodeScannerFragment : BaseFragment(), BarcodeScannerView {
 
     override val layoutRes = R.layout.fragment_barcode_scanner
+
+    var withDialogsConstrainSet: ConstraintSet? = null
+    var noDialogsConstrainSet: ConstraintSet? = null
 
     @InjectPresenter
     lateinit var presenter: BarcodeScannerPresenter
@@ -78,6 +83,33 @@ class BarcodeScannerFragment : BaseFragment(), BarcodeScannerView {
         back_btn.setOnClickListener {
             presenter.backBtnOnPressed()
         }
+        noDialogsConstrainSet = ConstraintSet().apply {
+            clone(barcode_constraint)
+        }
+        withDialogsConstrainSet = ConstraintSet().apply {
+            clone(barcode_constraint)
+            clear(dialogs_layout.id, ConstraintSet.END)
+            connect(
+                dialogs_layout.id,
+                ConstraintSet.START,
+                ConstraintSet.PARENT_ID,
+                ConstraintSet.START
+            )
+        }
+    }
+
+    override fun showDialog() {
+        TransitionManager.beginDelayedTransition(
+            barcode_constraint,
+            AutoTransition().apply { duration = 250 })
+        withDialogsConstrainSet?.applyTo(barcode_constraint)
+    }
+
+    override fun hideDialog() {
+        TransitionManager.beginDelayedTransition(
+            barcode_constraint,
+            AutoTransition().apply { duration = 250 })
+        noDialogsConstrainSet?.applyTo(barcode_constraint)
     }
 
     private val callback: BarcodeCallback = object : BarcodeCallback {

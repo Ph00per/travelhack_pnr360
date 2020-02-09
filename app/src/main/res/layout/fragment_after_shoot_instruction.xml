@@ -26,7 +26,7 @@
                 android:id="@+id/first_divider"
                 android:layout_width="64dp"
                 android:layout_height="4dp"
-                android:layout_marginTop="81dp"
+                android:layout_marginTop="132dp"
                 android:src="@drawable/ic_yellow_stick"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -34,7 +34,7 @@
 
             <TextView
                 android:id="@+id/ru_instr"
-                style="@style/unordered_list_text"
+                style="@style/text"
                 android:layout_width="0dp"
                 android:textColor="@color/colorPrimary"
                 android:layout_marginStart="0dp"
@@ -56,7 +56,7 @@
 
             <TextView
                 android:id="@+id/eng_instr"
-                style="@style/unordered_list_text"
+                style="@style/text"
                 android:layout_width="0dp"
                 android:textColor="@color/colorPrimary"
                 android:layout_marginStart="0dp"
@@ -79,7 +79,7 @@
 
             <TextView
                 android:id="@+id/china_instr"
-                style="@style/unordered_list_text"
+                style="@style/text"
                 android:layout_width="0dp"
                 android:textColor="@color/colorPrimary"
                 android:layout_marginStart="0dp"

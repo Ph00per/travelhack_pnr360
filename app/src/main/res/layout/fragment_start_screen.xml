@@ -6,32 +6,27 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:clickable="true"
+
     android:focusable="true"
     android:padding="32dp">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:src="@drawable/vector_barcode"
-        android:clickable="false"
-        android:elevation="14dp"
-        android:outlineProvider="bounds"
-        android:focusable="false"
-        app:layout_constraintBottom_toTopOf="@id/tablet_img"
+        android:id="@+id/barcode_img"
+        android:layout_width="136dp"
+        android:layout_height="130dp"
+        android:src="@drawable/barcode"
+        app:layout_constraintBottom_toBottomOf="@+id/tablet_img"
         app:layout_constraintEnd_toEndOf="@id/tablet_img"
-        app:layout_constraintStart_toStartOf="@id/tablet_img" />
+        app:layout_constraintStart_toStartOf="@id/tablet_img"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.30000002" />
 
     <ImageView
-        android:outlineProvider="bounds"
         android:id="@+id/tablet_img"
         android:layout_width="434dp"
         android:layout_height="259dp"
         android:layout_marginEnd="72dp"
-        android:src="@drawable/vector_tablet"
-        android:clickable="false"
-        android:elevation="28dp"
-        android:focusable="false"
+        android:src="@drawable/tablet"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -49,14 +44,14 @@
         android:id="@+id/first_divider"
         android:layout_width="64dp"
         android:layout_height="4dp"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="61dp"
         android:src="@drawable/ic_stick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo" />
 
     <TextView
         android:id="@+id/ru_instr"
-        style="@style/unordered_list_text"
+        style="@style/text"
         android:layout_width="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginTop="8dp"
@@ -70,14 +65,14 @@
         android:id="@+id/second_divider"
         android:layout_width="64dp"
         android:layout_height="4dp"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="61dp"
         android:src="@drawable/ic_stick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ru_instr" />
 
     <TextView
         android:id="@+id/eng_instr"
-        style="@style/unordered_list_text"
+        style="@style/text"
         android:layout_width="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginTop="8dp"
@@ -92,14 +87,14 @@
         android:id="@+id/third_divider"
         android:layout_width="64dp"
         android:layout_height="4dp"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="61dp"
         android:src="@drawable/ic_stick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/eng_instr" />
 
     <TextView
         android:id="@+id/china_instr"
-        style="@style/unordered_list_text"
+        style="@style/text"
         android:layout_width="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginTop="8dp"

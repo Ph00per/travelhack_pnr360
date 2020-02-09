@@ -5,8 +5,9 @@ import com.phooper.travelhack.App
 import com.phooper.travelhack.utils.Constants
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
-import org.redisson.api.RBucket
-import org.redisson.api.RedissonClient
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
 import javax.inject.Inject
 
 class TakePhotoTabletInteractor {
@@ -16,20 +17,20 @@ class TakePhotoTabletInteractor {
     }
 
     @Inject
-    lateinit var redissonClient: RedissonClient
-
-    val bucket: RBucket<String> = redissonClient.getBucket(
-        Constants.PHOTO_FLAG,
-        org.redisson.client.codec.StringCodec("utf-8")
-    )
+    lateinit var okhttpClient: OkHttpClient
 
     suspend fun setPhotoState(barcode: String) = withContext(IO) {
         try {
-            bucket.set(barcode)
-            Log.d("New Bucket", bucket.get())
+            okhttpClient.newCall(
+                Request.Builder()
+                    .url("${Constants.BASE_URI}api/users/que?barcode=$barcode").method(
+                        "POST",
+                        "".toRequestBody()
+                    )
+                    .build()
+            ).execute()
         } catch (e: Exception) {
             Log.d("Error", e.localizedMessage)
         }
     }
-
 }

@@ -1,8 +1,11 @@
 package com.phooper.travelhack.ui.take_photo_tablet
 
 import android.os.Bundle
+import android.transition.AutoTransition
+import android.transition.TransitionManager
 import android.view.View
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintSet
 import com.phooper.travelhack.R
 import com.phooper.travelhack.presentation.take_photo_tablet.TakePhotoTabletPresenter
 import com.phooper.travelhack.presentation.take_photo_tablet.TakePhotoTabletView
@@ -60,12 +63,17 @@ class TakePhotoTabletFragment : BaseFragment(), TakePhotoTabletView {
         seconds_left.visibility = View.VISIBLE
     }
 
-    override fun hideHintLayout() {
-        hint_layout.visibility = View.GONE
-    }
+    override fun hideHintAndExit() {
+        TransitionManager.beginDelayedTransition(photo_layout,
+            AutoTransition().apply { duration = 250 })
+        ConstraintSet().apply {
+            clone(photo_layout)
+            clear(hint_layout.id, ConstraintSet.START)
+            connect(hint_layout.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.START)
+            clear(exit_btn.id, ConstraintSet.BOTTOM)
+            connect(exit_btn.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM)
 
-    override fun hideExitBtn() {
-        exit_btn.visibility = View.GONE
+        }.applyTo(photo_layout)
     }
 
     companion object {

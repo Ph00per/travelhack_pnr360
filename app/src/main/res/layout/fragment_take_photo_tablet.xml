@@ -1,113 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/photo_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@color/chromaKey"
+    app:layout_constraintBottom_toTopOf="@id/exit_btn"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="0dp"
+        android:id="@+id/hint_layout"
+        android:layout_width="640dp"
         android:layout_height="0dp"
-        android:background="@color/chromaKey"
-        app:layout_constraintBottom_toTopOf="@id/exit_btn"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/black_transparent"
+        android:padding="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/exit_btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/hint_layout"
-            android:padding="32dp"
-            android:layout_width="640dp"
-            android:layout_height="match_parent"
-            android:background="@color/black_transparent"
+
+        <ImageView
+            android:id="@+id/first_divider"
+            android:layout_width="64dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="81dp"
+            android:src="@drawable/ic_yellow_stick"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-            <ImageView
-                android:id="@+id/first_divider"
-                android:layout_width="64dp"
-                android:layout_height="4dp"
-                android:layout_marginTop="81dp"
-                android:src="@drawable/ic_yellow_stick"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
-
-            <TextView
-                android:id="@+id/ru_instr"
-                style="@style/unordered_list_text"
-                android:layout_width="0dp"
-                android:textColor="@color/colorPrimary"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="36dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/rus_tak_shoot"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/first_divider" />
-
-            <ImageView
-                android:id="@+id/second_divider"
-                android:layout_width="64dp"
-                android:layout_height="4dp"
-                android:layout_marginTop="81dp"
-                android:src="@drawable/ic_yellow_stick"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ru_instr" />
-
-            <TextView
-                android:id="@+id/eng_instr"
-                style="@style/unordered_list_text"
-                android:layout_width="0dp"
-                android:textColor="@color/colorPrimary"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="36dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/eng_takephoto"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/second_divider" />
-
-
-            <ImageView
-                android:id="@+id/third_divider"
-                android:layout_width="64dp"
-                android:layout_height="4dp"
-                android:layout_marginTop="81dp"
-                android:src="@drawable/ic_yellow_stick"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/eng_instr" />
-
-            <TextView
-                android:id="@+id/china_instr"
-                style="@style/unordered_list_text"
-                android:layout_width="0dp"
-                android:textColor="@color/colorPrimary"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="36dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/chin_start_screen"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/third_divider" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <include
-            android:id="@+id/start_btn"
-            layout="@layout/counter_digital_circle"
-            android:layout_width="220dp"
-            android:layout_height="220dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/hint_layout"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/ru_instr"
+            style="@style/text"
+            android:layout_width="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="36dp"
+            android:text="@string/rus_tak_shoot"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/first_divider" />
+
+        <ImageView
+            android:id="@+id/second_divider"
+            android:layout_width="64dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="81dp"
+            android:src="@drawable/ic_yellow_stick"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ru_instr" />
+
+        <TextView
+            android:id="@+id/eng_instr"
+            style="@style/text"
+            android:layout_width="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="36dp"
+            android:text="@string/eng_takephoto"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/second_divider" />
+
+
+        <ImageView
+            android:id="@+id/third_divider"
+            android:layout_width="64dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="81dp"
+            android:src="@drawable/ic_yellow_stick"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/eng_instr" />
+
+        <TextView
+            android:id="@+id/china_instr"
+            style="@style/text"
+            android:layout_width="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="36dp"
+            android:text="@string/chin_start_screen"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/third_divider" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/start_btn"
+        layout="@layout/counter_digital_circle"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        app:layout_constraintBottom_toTopOf="@id/exit_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/hint_layout"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/exit_btn"
@@ -116,10 +109,11 @@
         android:background="@color/black"
         android:clickable="true"
         android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="720dp">
 
         <ImageView
             android:layout_width="48dp"
@@ -128,4 +122,6 @@
             android:src="@drawable/ic_rounded_cross" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 

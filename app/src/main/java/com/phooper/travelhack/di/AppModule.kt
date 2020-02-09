@@ -52,16 +52,6 @@ class AppModule(private val context: Context) {
 
     @Singleton
     @Provides
-    fun providesRedConfig(): Config =
-        Config().apply { useSingleServer().address = "redis://192.168.43.191:6379" }
-
-    @Singleton
-    @Provides
-    fun provideRedisson(config: Config): RedissonClient =
-        Redisson.create(config)
-
-    @Singleton
-    @Provides
     fun provideOkHttpClient(): OkHttpClient = OkHttpClient().newBuilder()
         .build()
 }

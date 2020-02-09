@@ -8,55 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-
-    <style name="button_primary">
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:background">@drawable/button_primary_background</item>
-        <item name="android:layout_width">298dp</item>
-        <item name="android:layout_height">194dp</item>
-        <item name="android:layout_margin">32dp</item>
-        <item name="android:fontFamily">@font/open_sans_extrabold</item>
-        <item name="android:lineSpacingMultiplier">1.05</item>
-        <item name="android:textSize">55sp</item>
-        <item name="android:lineSpacingExtra">4sp</item>
-    </style>
-
-    <style name="arrow">
-        <item name="android:layout_width">53dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:src">@drawable/ic_arrow_forward_long</item>
-        <item name="android:layout_margin">16dp</item>
-    </style>
-
-    <style name="button_secondary_grey">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textAllCaps">false</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">@font/open_sans_semibold</item>
-        <item name="android:textColor">@color/colorPrimary</item>
-        <item name="android:background">@drawable/button_secondary_grey_background</item>
-        <item name="android:paddingTop">13dp</item>
-        <item name="android:paddingBottom">13dp</item>
-        <item name="android:paddingStart">32dp</item>
-        <item name="android:paddingEnd">32dp</item>
-        <item name="android:layout_margin">32dp</item>
-    </style>
-
-    <style name="button_secondary_purple" parent="button_secondary_grey">
-        <item name="android:background">@drawable/button_secondary_purple_background</item>
-    </style>
-
-    <style name="text_header">
-        <item name="android:layout_margin">32dp</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@font/open_sans_extrabold</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">55sp</item>
-    </style>
-
-    <style name="unordered_list_text">
+    <style name="text">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:textColor">@color/black</item>
@@ -65,10 +17,4 @@
         <item name="android:layout_marginStart">16dp</item>
     </style>
 
-    <style name="unordered_list_circle">
-        <item name="android:layout_width">16dp</item>
-        <item name="android:layout_marginTop">10dp</item>
-        <item name="android:layout_height">16dp</item>
-        <item name="android:src">@drawable/ic_circle</item>
-    </style>
 </resources>

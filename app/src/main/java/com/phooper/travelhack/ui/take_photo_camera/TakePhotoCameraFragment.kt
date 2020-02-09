@@ -36,8 +36,9 @@ class TakePhotoCameraFragment : BaseFragment(), TakePhotoCameraView {
             addCameraListener(object : CameraListener() {
                 override fun onPictureTaken(result: PictureResult) {
                     super.onPictureTaken(result)
-                    result.toBitmap {
+                    result.data.let{
                         presenter.photoTaken(it)
+
                     }
                 }
             })
